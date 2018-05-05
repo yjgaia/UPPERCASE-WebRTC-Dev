@@ -9,9 +9,12 @@ WebRTCDev.Offer = CLASS({
 		let rtcRoom = WebRTCDev.ROOM('RTC');
 		
 		let peerConnection = new RTCPeerConnection({
-			iceServers : [
-			//	{url:'stun:stun.l.google.com:19302'}
-			]
+			iceTransportPolicy : 'relay',
+			iceServers : [{
+				urls : 'turn:localhost:18504',
+				username : 'test',
+				credential : 'test'
+			}]
 		});
 		
 		peerConnection.onicecandidate = (e) => {

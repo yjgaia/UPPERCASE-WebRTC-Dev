@@ -9,8 +9,11 @@ WebRTCDev.Answer = CLASS({
 		let rtcRoom = WebRTCDev.ROOM('RTC');
 		
 		let peerConnection = new RTCPeerConnection({
+			iceTransportPolicy : 'relay',
 			iceServers : [{
-				//urls : 'turn:localhost:18504'
+				urls : 'turn:localhost:18504',
+				username : 'test',
+				credential : 'test'
 			}]
 		});
 		
